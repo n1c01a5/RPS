@@ -2,7 +2,13 @@
   "name": "dapper",
   "version": "0.2.0",
   "description": "A boilerplate for Ethereum dapps.",
-  "keywords": ["blockchain", "ethereum", "dapp", "boilerplate", "frontend"],
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "dapp",
+    "boilerplate",
+    "frontend"
+  ],
   "repository": "https://github.com/kleros/dapper",
   "author": "Kleros",
   "license": "MIT",
@@ -37,7 +43,9 @@
     ]
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "devDependencies": {
     "@dump247/storybook-state": "^1.2.1",
@@ -81,11 +89,13 @@
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.6",
+    "react-redux-toastr": "^7.2.3",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "1.1.1",
     "redux": "^3.7.2",
     "redux-form": "^7.2.3",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "run-p": "^0.0.0"
   }
 }
