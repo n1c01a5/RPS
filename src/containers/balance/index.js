@@ -26,7 +26,6 @@ class Balance extends PureComponent {
   }
 
   handleDeployRps = () => {
-    console.log('wefewf')
     const { createRPS } = this.props
     createRPS({c1Hash: 'hash', js: 'j2address'})
   }
