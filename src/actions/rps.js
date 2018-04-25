@@ -20,13 +20,13 @@ export const createRPS = RPS => ({
 })
 
 // move player 2
-export const move2RPS = move2Tx => ({
+export const move2RPS = move2 => console.log('actionsmove2',move2)||({
   type: rps.MOVE2_RPS,
-  payload: { move2Tx }
+  payload: { move2 }
 })
 
 // solve player 1
-export const solveRPS = solveTx => ({
+export const solveRPS = solve => ({
   type: rps.SOLVE_RPS,
-  payload: { solveTx }
+  payload: { solve }
 })

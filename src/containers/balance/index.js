@@ -40,6 +40,12 @@ class Balance extends PureComponent {
     createRPS({hash, j2, bid})
   }
 
+  handleMove2 = e => {
+    const { move2RPS, rps } = this.props
+    console.log(rps)
+    move2RPS({contractAddress: rps.data.tx.contractAddress, move2: e.target.value})
+  }
+
   handleC1 = e => this.setState({c1: e.target.value})
 
   handleSalt = e => this.setState({salt: e.target.value})
@@ -49,7 +55,7 @@ class Balance extends PureComponent {
   handleBid = e => this.setState({bid: e.target.value})
 
   render() {
-    const { balance } = this.props
+    const { balance, rps } = this.props
 
     console.log('0x' + abi.soliditySHA3(["uint8", "uint256"],[1, 42]).toString('hex'))
 
@@ -58,8 +64,6 @@ class Balance extends PureComponent {
         <div className="Balance-message">
           <b>RPS</b>
         </div>
-        <br />
-        <br />
         <div className="Balance-message">
           <RenderIf
             resource={balance}
@@ -71,26 +75,42 @@ class Balance extends PureComponent {
                   <Identicon
                     seed="Placeholder"
                     className="Balance-message-identicon"
-                  />, You have {balance.data.toString()} ETH.
-                  <button onClick={this.handleDeployRps}>Deploy</button>
-                  <div>
-                    <select onChange={this.handleC1}>
-                      <option value={null}>Move</option>
-                      <option value={1}>Rock</option>
-                      <option value={2}>Paper</option>
-                      <option value={3}>Scissors</option>
-                      <option value={4}>Lizard</option>
-                      <option value={5}>Spock</option>
-                    </select>
-                    <input onChange={this.handleSalt} type="number" name="salt" placeholder="salt" />
-                  </div>
-                  <div>
-                    <input onChange={this.handleJ2} type="string" name="j2" placeholder="j2 address" />
-                  </div>
-                  <div>
-                    <input onChange={this.handleBid} type="number" name="bid" placeholder="Bid (wei)" />
-                  </div>
-                  <button onClick={this.handleDeployRps}>Deploy RPS</button>
+                  />
+                {
+                  !rps.data ? (
+                    <span>
+                    <div>
+                      <select onChange={this.handleC1}>
+                        <option value={null}>Move</option>
+                        <option value={1}>Rock</option>
+                        <option value={2}>Paper</option>
+                        <option value={3}>Scissors</option>
+                        <option value={4}>Lizard</option>
+                        <option value={5}>Spock</option>
+                      </select>
+                      <input onChange={this.handleSalt} type="number" name="salt" placeholder="salt" />
+                    </div>
+                    <div>
+                      <input onChange={this.handleJ2} type="string" name="j2" placeholder="j2 address" />
+                    </div>
+                    <div>
+                      <input onChange={this.handleBid} type="number" name="bid" placeholder="Bid (wei)" />
+                    </div>
+                    <button onClick={this.handleDeployRps}>Deploy RPS</button>
+                    </span>
+                  ) : (
+                    <div>
+                      <select onChange={this.handleMove2}>
+                        <option value={null}>Move</option>
+                        <option value={1}>Rock</option>
+                        <option value={2}>Paper</option>
+                        <option value={3}>Scissors</option>
+                        <option value={4}>Lizard</option>
+                        <option value={5}>Spock</option>
+                      </select>
+                    </div>
+                  )
+                }
                 </span>
               )
             }
@@ -116,7 +136,7 @@ class Balance extends PureComponent {
 export default connect(
   state => ({
     balance: state.wallet.balance,
-    rps: state.rps.RPS,
+    rps: state.rps.rps
   }),
   {
     fetchBalance: walletActions.fetchBalance,

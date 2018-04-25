@@ -21,8 +21,12 @@ export function* createRPS ({ type, payload: { RPS } }) {
  * Creates the RPS.
  * @returns {object} - The profile.
  */
-export function* move2RPS () {
-  return yield call(rpsEth.deployRPS, null)
+export function* move2RPS ({ type, payload: { move2 } }) {
+  console.log('Move2Saga',move2)
+  const accounts = yield call(eth.accounts)
+  if (!accounts[0]) throw new Error('ETH_NO_ACCOUNTS')
+
+  return yield call(rpsEth.move2, move2, accounts)
 }
 
 /**

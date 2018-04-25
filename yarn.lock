@@ -5033,6 +5033,21 @@ ethereumjs-wallet@~0.6.0:
     utf8 "^2.1.1"
     uuid "^2.0.1"
 
+ethers-contracts@*:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/ethers-contracts/-/ethers-contracts-2.2.1.tgz#e2bf5dd5e157313ba454b50c646c8472fcd0a8b3"
+  dependencies:
+    ethers-utils "^2.1.0"
+
+ethers-utils@^2.1.0:
+  version "2.1.11"
+  resolved "https://registry.yarnpkg.com/ethers-utils/-/ethers-utils-2.1.11.tgz#b27535ca3226118be300211c39c896b1e5e21641"
+  dependencies:
+    bn.js "^4.4.0"
+    hash.js "^1.0.0"
+    js-sha3 "0.5.7"
+    xmlhttprequest "1.8.0"
+
 ethjs-abi@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/ethjs-abi/-/ethjs-abi-0.2.0.tgz#d3e2c221011520fc499b71682036c14fcc2f5b25"
@@ -5059,6 +5074,17 @@ ethjs-contract@^0.2.0:
     ethjs-util "0.1.3"
     js-sha3 "0.5.5"
 
+ethjs-extras@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/ethjs-extras/-/ethjs-extras-0.0.6.tgz#7f521aeb8f1f4cc0d19091abc49bcbb0cf1b9b77"
+  dependencies:
+    ethers-contracts "*"
+    ethjs-provider-http "^0.1.6"
+    ethjs-provider-signer "^0.1.4"
+    ethjs-rpc "^0.1.8"
+    js-sha3 "^0.7.0"
+    solidity-to-abi "^1.0.4"
+
 ethjs-filter@0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/ethjs-filter/-/ethjs-filter-0.1.5.tgz#0112af6017c24677e32b8fdeb20e6196019b7598"
@@ -5068,6 +5094,17 @@ ethjs-filter@0.1.7:
   resolved "https://registry.yarnpkg.com/ethjs-filter/-/ethjs-filter-0.1.7.tgz#5fd87e039e2c4816f95081c26736cec32b5f0e13"
   dependencies:
     ganache-core "^2.1.0"
+
+ethjs-format@0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/ethjs-format/-/ethjs-format-0.1.8.tgz#925ecdd965ea72a2a2daf2a122e5bf80b5ad522a"
+  dependencies:
+    bn.js "4.11.6"
+    ethjs-schema "0.1.4"
+    ethjs-util "0.1.3"
+    is-hex-prefixed "1.0.0"
+    number-to-bn "1.7.0"
+    strip-hex-prefix "1.0.0"
 
 ethjs-format@0.2.5:
   version "0.2.5"
@@ -5080,11 +5117,18 @@ ethjs-format@0.2.5:
     number-to-bn "1.7.0"
     strip-hex-prefix "1.0.0"
 
-ethjs-provider-http@0.1.6:
+ethjs-provider-http@0.1.6, ethjs-provider-http@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/ethjs-provider-http/-/ethjs-provider-http-0.1.6.tgz#1ec5d9b4be257ef1d56a500b22a741985e889420"
   dependencies:
     xhr2 "0.1.3"
+
+ethjs-provider-signer@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/ethjs-provider-signer/-/ethjs-provider-signer-0.1.4.tgz#6bd5cb38a8d5b0ddf46ac1e23a60eea1716171ae"
+  dependencies:
+    ethjs-provider-http "0.1.6"
+    ethjs-rpc "0.1.2"
 
 ethjs-query@0.3.3:
   version "0.3.3"
@@ -5093,9 +5137,23 @@ ethjs-query@0.3.3:
     ethjs-format "0.2.5"
     ethjs-rpc "0.1.8"
 
+ethjs-rpc@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/ethjs-rpc/-/ethjs-rpc-0.1.2.tgz#39a3456b51c59aeeafb5ba556589a59f2da88d26"
+  dependencies:
+    ethjs-format "0.1.8"
+
 ethjs-rpc@0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/ethjs-rpc/-/ethjs-rpc-0.1.8.tgz#1676740e41c7228196a71189d33f15c9c85b599d"
+
+ethjs-rpc@^0.1.8:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/ethjs-rpc/-/ethjs-rpc-0.1.9.tgz#389dcd61be52e72bc47111a75805f8e45882faea"
+
+ethjs-schema@0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/ethjs-schema/-/ethjs-schema-0.1.4.tgz#0323a16333b1ace9a8f1d696a6ee63448fdd455f"
 
 ethjs-schema@0.2.0:
   version "0.2.0"
@@ -7658,6 +7716,10 @@ js-scrypt@^0.2.0:
 js-sha3@0.5.5:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/js-sha3/-/js-sha3-0.5.5.tgz#baf0c0e8c54ad5903447df96ade7a4a1bca79a4a"
+
+js-sha3@0.5.7:
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/js-sha3/-/js-sha3-0.5.7.tgz#0d4ffd8002d5333aabaf4a23eed2f6374c9f28e7"
 
 js-sha3@^0.3.1:
   version "0.3.1"
@@ -12243,6 +12305,10 @@ solidity-sha3@^0.4.1:
     left-pad "^1.1.1"
     web3 "^0.16.0"
 
+solidity-to-abi@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/solidity-to-abi/-/solidity-to-abi-1.0.4.tgz#b5d1c095e7cb8ee402d5f7a49d2c2ff0e0d63a15"
+
 sort-keys@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/sort-keys/-/sort-keys-1.1.2.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
@@ -14314,7 +14380,7 @@ xml-name-validator@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-3.0.0.tgz#6ae73e06de4d8c6e47f9fb181f78d648ad457c6a"
 
-xmlhttprequest@*:
+xmlhttprequest@*, xmlhttprequest@1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/xmlhttprequest/-/xmlhttprequest-1.8.0.tgz#67fe075c5c24fef39f9d65f5f7b7fe75171968fc"
 
