@@ -79,9 +79,12 @@
   },
   "dependencies": {
     "create-redux-form": "^0.1.2",
+    "crypto-js": "^3.1.9-1",
+    "ethereumjs-abi": "^0.6.5",
     "ethjs": "^0.3.3",
     "ethjs-contract": "^0.2.0",
     "history": "^4.7.2",
+    "js-sha3": "^0.7.0",
     "lessdux": "^0.4.1",
     "normalize.css": "^8.0.0",
     "react": "^16.2.0",
@@ -97,6 +100,8 @@
     "redux": "^3.7.2",
     "redux-form": "^7.2.3",
     "redux-saga": "^0.16.0",
-    "run-p": "^0.0.0"
+    "run-p": "^0.0.0",
+    "solidity-sha3": "^0.4.1",
+    "web3": "^1.0.0-beta.34"
   }
 }
