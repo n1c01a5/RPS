@@ -16,7 +16,8 @@ class Balance extends PureComponent {
     balance: walletSelectors.balanceShape.isRequired,
 
     // Action Dispatchers
-    fetchBalance: PropTypes.func.isRequired
+    fetchBalance: PropTypes.func.isRequired,
+    createRPS: PropTypes.func.isRequired
   }
 
   componentDidMount() {
@@ -27,10 +28,7 @@ class Balance extends PureComponent {
   handleDeployRps = () => {
     console.log('wefewf')
     const { createRPS } = this.props
-    createRPS({
-      c1Hash: "0x109c7d1a56a8d4555ebed5c963048374daedb9b1e99458bd3683101437843e0e",
-      j2: "0xca35b7d915458ef540ade6068dfe2f44e8fa733c"
-    })
+    createRPS({c1Hash: 'hash', js: 'j2address'})
   }
 
   render() {
@@ -83,7 +81,7 @@ class Balance extends PureComponent {
 export default connect(
   state => ({
     balance: state.wallet.balance,
-    RPS: state.rps.RPS,
+    rps: state.rps.RPS,
   }),
   {
     fetchBalance: walletActions.fetchBalance,

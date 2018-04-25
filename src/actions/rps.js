@@ -1,20 +1,18 @@
 import { createActions } from 'lessdux'
 
-// Actions
-export const RPS = createActions(
-  'RPS',
-  {
+/* Actions */
+
+// deploy RPS smart contract
+export const rps = {
+  ...createActions('RPS', {
     withCreate: true
-  }
-)
+  })
+}
 
-// Action Creators
-export const createRPS = (c1Hash, j2) => ({
-  type: RPS.CREATE,
-  payload: { c1Hash, j2 }
-})
+/* Action Creators */
 
-export const receiveRPS = tx => ({
-  type: RPS.RECEIVE,
-  payload: { tx }
+// Profile
+export const createRPS = rpsTx => ({
+  type: rps.CREATE,
+  payload: { rpsTx }
 })

@@ -1,25 +1,16 @@
 import PropTypes from 'prop-types'
 import createReducer, { createResource } from 'lessdux'
 
-// Common Shapes
-export const _RPSShape = PropTypes.shape({
-  c1Hash: PropTypes.string.isRequired,
-  js: PropTypes.string.isRequired
-})
-
 // Shapes
 const {
-  shape: RPSShape,
-  initialState: RPSInitialState
-} = createResource(_RPSShape, {
-  withCreate: true
-})
-
-export { RPSShape }
+  shape: rpsShape,
+  initialState: rpsInitialState
+} = createResource(PropTypes.string)
+export { rpsShape }
 
 // Reducer
-const initialState = {
-  RPS: RPSInitialState
-}
+export default createReducer({
+  rps: rpsInitialState
+})
 
-export default createReducer(initialState)
+// Selectors
