@@ -33,6 +33,7 @@
     "build": "yarn run build:scss && yarn run build:js",
     "build:analyze": "source-map-explorer build/static/js/main.*"
   },
+  "homepage" : "http://n1c01a5.github.io/rps",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
