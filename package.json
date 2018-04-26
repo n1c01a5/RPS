@@ -78,6 +78,7 @@
     "timezone-mock": "^0.0.7"
   },
   "dependencies": {
+    "bignumber.js": "^6.0.0",
     "create-redux-form": "^0.1.2",
     "crypto-js": "^3.1.9-1",
     "ethereumjs-abi": "^0.6.5",

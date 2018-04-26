@@ -8,7 +8,7 @@ import rpsEth from './ethereum/rps'
 
 /**
  * Creates the RPS.
- * @returns {object} - The profile.
+ * @returns {object} - The RPS params.
  */
 export function* createRPS ({ type, payload: { RPS } }) {
   const accounts = yield call(eth.accounts)
@@ -18,11 +18,10 @@ export function* createRPS ({ type, payload: { RPS } }) {
 }
 
 /**
- * Creates the RPS.
- * @returns {object} - The profile.
+ * Creates the player 2 move.
+ * @returns {object} - The move params.
  */
 export function* move2RPS ({ type, payload: { move2 } }) {
-  console.log('Move2Saga',move2)
   const accounts = yield call(eth.accounts)
   if (!accounts[0]) throw new Error('ETH_NO_ACCOUNTS')
 

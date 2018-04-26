@@ -20,7 +20,7 @@ export const createRPS = RPS => ({
 })
 
 // move player 2
-export const move2RPS = move2 => console.log('actionsmove2',move2)||({
+export const move2RPS = move2 => ({
   type: rps.MOVE2_RPS,
   payload: { move2 }
 })

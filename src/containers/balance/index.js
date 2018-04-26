@@ -17,7 +17,8 @@ class Balance extends PureComponent {
     c1: null,
     salt: null,
     j2: null,
-    bid: 0
+    bid: 0,
+    contractAddress: null
   }
   static propTypes = {
     // Redux State
@@ -42,8 +43,9 @@ class Balance extends PureComponent {
 
   handleMove2 = e => {
     const { move2RPS, rps } = this.props
-    console.log(rps)
-    move2RPS({contractAddress: rps.data.tx.contractAddress, move2: e.target.value})
+    const { bid } = this.state
+    this.setState({contractAddress: rps.data.tx.contractAddress})
+    move2RPS({contractAddress: rps.data.tx.contractAddress, move2: e.target.value, amount: bid})
   }
 
   handleC1 = e => this.setState({c1: e.target.value})
@@ -57,7 +59,7 @@ class Balance extends PureComponent {
   render() {
     const { balance, rps } = this.props
 
-    console.log('0x' + abi.soliditySHA3(["uint8", "uint256"],[1, 42]).toString('hex'))
+    console.log(this.state)
 
     return (
       <div className="Balance">
