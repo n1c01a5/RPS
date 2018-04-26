@@ -29,6 +29,18 @@ export function* move2RPS ({ type, payload: { move2 } }) {
 }
 
 /**
+ * Solves RPS.
+ * @returns {object} - The move params.
+ */
+export function* solveRPS ({ type, payload: { move1 } }) {
+  const accounts = yield call(eth.accounts)
+  if (!accounts[0]) throw new Error('ETH_NO_ACCOUNTS')
+  console.log('move1',move1)
+
+  return yield call(rpsEth.solve, move1, accounts)
+}
+
+/**
  * The root of the wallet saga.
  */
 export default function* walletSaga() {
@@ -45,5 +57,12 @@ export default function* walletSaga() {
     'create',
     rpsActions.rps,
     move2RPS
+  )
+  yield takeLatest(
+    rpsActions.rps.SOLVE_RPS,
+    lessduxSaga,
+    'create',
+    rpsActions.rps,
+    solveRPS
   )
 }

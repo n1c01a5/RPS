@@ -26,7 +26,7 @@ export const move2RPS = move2 => ({
 })
 
 // solve player 1
-export const solveRPS = solve => ({
+export const solveRPS = move1 => ({
   type: rps.SOLVE_RPS,
-  payload: { solve }
+  payload: { move1 }
 })

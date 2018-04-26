@@ -34,9 +34,23 @@ const rpsEth = {
 
     const tx2 = await onReceipt(resultTx, {network: 'kovan'})
 
-    console.log(tx2)
-
     return {tx2}
+  },
+  async solve (move1, accounts) {
+    const contract = new EthContract(eth)
+
+    const RPSInstance = eth.contract(RPS.abi, RPS.bytecode, {
+      from: accounts[0],
+      gas: 300000
+    })
+
+    const RPSDeployedInstance = await RPSInstance.at(move1.contractAddress)
+
+    const resultTx = await solveRPS(RPSDeployedInstance, accounts, move1.move1, move1.salt)
+
+    const tx3 = await onReceipt(resultTx, {network: 'kovan'})
+
+    return {tx3}
   }
 }
 
@@ -66,6 +80,23 @@ const play2RPS = (RPSDeployedInstance, accounts, move2, amount) => {
         from: accounts[0],
         gas: 300000,
         value: new BN(parseInt(amount, 10)) // 1000000000000000000 = 1 eth
+      },
+      (error, result) => {
+      if (error)
+        reject(error)
+      resolve(result)
+    })
+  })
+}
+
+const solveRPS = (RPSDeployedInstance, accounts, move1, salt) => {
+  return new Promise((resolve, reject) => {
+    RPSDeployedInstance.solve(
+      move1,
+      salt,
+      {
+        from: accounts[0],
+        gas: 300000
       },
       (error, result) => {
       if (error)

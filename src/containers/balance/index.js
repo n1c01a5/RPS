@@ -48,6 +48,12 @@ class Balance extends PureComponent {
     move2RPS({contractAddress: rps.data.tx.contractAddress, move2: e.target.value, amount: bid})
   }
 
+  handleSolve = e => {
+    const { solveRPS } = this.props
+    const { contractAddress, c1, salt } = this.state
+    solveRPS({contractAddress, move1: c1, salt})
+  }
+
   handleC1 = e => this.setState({c1: e.target.value})
 
   handleSalt = e => this.setState({salt: e.target.value})
@@ -79,7 +85,7 @@ class Balance extends PureComponent {
                     className="Balance-message-identicon"
                   />
                 {
-                  !rps.data ? (
+                  rps.data === null && (
                     <span>
                     <div>
                       <select onChange={this.handleC1}>
@@ -100,7 +106,10 @@ class Balance extends PureComponent {
                     </div>
                     <button onClick={this.handleDeployRps}>Deploy RPS</button>
                     </span>
-                  ) : (
+                  )
+                }
+                {
+                  rps.data && rps.data.tx && (
                     <div>
                       <select onChange={this.handleMove2}>
                         <option value={null}>Move</option>
@@ -110,6 +119,21 @@ class Balance extends PureComponent {
                         <option value={4}>Lizard</option>
                         <option value={5}>Spock</option>
                       </select>
+                    </div>
+                  )
+                }
+                {
+                  rps.data && rps.data.tx2 && (
+                    <div>
+                      <button onClick={this.handleSolve}>Solve</button>
+                    </div>
+                  )
+                }
+                {
+                  rps.data && rps.data.tx3 && (
+                    <div>
+                      <h1>Game Over</h1>
+                      <h4>Funds have been released</h4>
                     </div>
                   )
                 }
@@ -143,6 +167,7 @@ export default connect(
   {
     fetchBalance: walletActions.fetchBalance,
     createRPS: rpsActions.createRPS,
-    move2RPS: rpsActions.move2RPS
+    move2RPS: rpsActions.move2RPS,
+    solveRPS: rpsActions.solveRPS
   }
 )(Balance)
