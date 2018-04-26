@@ -84,7 +84,6 @@
     "ethereumjs-abi": "^0.6.5",
     "ethjs": "^0.3.3",
     "ethjs-contract": "^0.2.0",
-    "ethjs-extras": "^0.0.6",
     "history": "^4.7.2",
     "js-sha3": "^0.7.0",
     "lessdux": "^0.4.1",
