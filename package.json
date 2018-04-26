@@ -31,9 +31,11 @@
     "build:js": "react-scripts build",
     "start": "run-p start:scss start:js",
     "build": "yarn run build:scss && yarn run build:js",
-    "build:analyze": "source-map-explorer build/static/js/main.*"
+    "build:analyze": "source-map-explorer build/static/js/main.*",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
-  "homepage" : "http://n1c01a5.github.io/rps",
+  "homepage": "http://n1c01a5.github.io/rps",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
@@ -63,6 +65,7 @@
     "esdoc-standard-plugin": "^1.0.0",
     "eslint-plugin-react": "^7.6.1",
     "ganache-cli": "^6.1.0",
+    "gh-pages": "^1.1.0",
     "husky": "^0.14.3",
     "jest-enzyme": "^6.0.0",
     "kleros-scripts": "^0.5.0",
