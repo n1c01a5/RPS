@@ -1,5 +1,4 @@
 import EthContract from 'ethjs-contract'
-import { onReceipt } from 'ethjs-extras'
 import BN from 'bignumber.js'
 import { delay } from 'redux-saga'
 
