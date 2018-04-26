@@ -35,7 +35,6 @@ export function* move2RPS ({ type, payload: { move2 } }) {
 export function* solveRPS ({ type, payload: { move1 } }) {
   const accounts = yield call(eth.accounts)
   if (!accounts[0]) throw new Error('ETH_NO_ACCOUNTS')
-  console.log('move1',move1)
 
   return yield call(rpsEth.solve, move1, accounts)
 }

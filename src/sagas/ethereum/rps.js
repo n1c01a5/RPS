@@ -1,6 +1,7 @@
 import EthContract from 'ethjs-contract'
 import { onReceipt } from 'ethjs-extras'
 import BN from 'bignumber.js'
+import { delay } from 'redux-saga'
 
 import { eth, RPS } from '../../bootstrap/dapp-api'
 
@@ -16,9 +17,14 @@ const rpsEth = {
     // create a new contract
     const resultTx = await deployRPS(RPSInstance, accounts, rps.hash, rps.j2, rps.bid)
 
-    const tx = await onReceipt(resultTx, {network: 'kovan'})
+    let receipt
 
-    return {tx}
+    while (!receipt) {
+      receipt = await eth.getTransactionReceipt(resultTx)
+      await delay(200)
+    }
+
+    return {tx: receipt}
   },
   async move2 (move2, accounts) {
     const contract = new EthContract(eth)
@@ -32,9 +38,14 @@ const rpsEth = {
 
     const resultTx = await play2RPS(RPSDeployedInstance, accounts, move2.move2, move2.amount)
 
-    const tx2 = await onReceipt(resultTx, {network: 'kovan'})
+    let receipt
 
-    return {tx2}
+    while (!receipt) {
+      receipt = await eth.getTransactionReceipt(resultTx)
+      await delay(200)
+    }
+
+    return {tx2: receipt}
   },
   async solve (move1, accounts) {
     const contract = new EthContract(eth)
@@ -48,9 +59,14 @@ const rpsEth = {
 
     const resultTx = await solveRPS(RPSDeployedInstance, accounts, move1.move1, move1.salt)
 
-    const tx3 = await onReceipt(resultTx, {network: 'kovan'})
+    let receipt
 
-    return {tx3}
+    while (!receipt) {
+      receipt = await eth.getTransactionReceipt(resultTx)
+      await delay(200)
+    }
+
+    return {tx3: receipt}
   }
 }
 

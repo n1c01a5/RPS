@@ -10,9 +10,9 @@ import * as rpsActions from '../../actions/rps'
 import * as walletSelectors from '../../reducers/wallet'
 import Identicon from '../../components/identicon'
 
-import './balance.css'
+import './rps.css'
 
-class Balance extends PureComponent {
+class RPS extends PureComponent {
   state = {
     c1: null,
     salt: null,
@@ -65,14 +65,12 @@ class Balance extends PureComponent {
   render() {
     const { balance, rps } = this.props
 
-    console.log(this.state)
-
     return (
-      <div className="Balance">
-        <div className="Balance-message">
+      <div className="RPS">
+        <div className="RPS-message">
           <b>RPS</b>
         </div>
-        <div className="Balance-message">
+        <div className="RPS-message">
           <RenderIf
             resource={balance}
             loading="Loading balance..."
@@ -82,7 +80,7 @@ class Balance extends PureComponent {
                   Welcome{' '}
                   <Identicon
                     seed="Placeholder"
-                    className="Balance-message-identicon"
+                    className="RPS-message-identicon"
                   />
                 {
                   rps.data === null && (
@@ -170,4 +168,4 @@ export default connect(
     move2RPS: rpsActions.move2RPS,
     solveRPS: rpsActions.solveRPS
   }
-)(Balance)
+)(RPS)
